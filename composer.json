@@ -1,0 +1,19 @@
+{
+    "name": "magazord/contatos",
+    "description": "Sistema de contatos (pessoas e contatos) em PHP puro com MVC e Doctrine ORM",
+    "type": "project",
+    "license": "MIT",
+    "require": {
+        "php": "^8.3",
+        "ext-pdo": "*",
+        "doctrine/dbal": "^4.0",
+        "doctrine/orm": "^3.3",
+        "symfony/cache": "^6.4 || ^7.0 || ^8.0",
+        "vlucas/phpdotenv": "^5.6"
+    },
+   "autoload": {
+        "psr-4": {
+            "Src\\": "src/"
+        }
+    }
+}
