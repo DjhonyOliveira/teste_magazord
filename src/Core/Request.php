@@ -10,7 +10,7 @@ namespace Src\Core;
  */
 class Request
 {
-    private const METODOS_SOBRESCREVIVEIS = ['PUT', 'PATCH', 'DELETE'];
+    private const METODOS_SOBRESCREVIVEIS = ['PUT', 'DELETE'];
 
     private readonly string $method;
     private readonly string $path;

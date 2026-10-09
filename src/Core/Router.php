@@ -46,20 +46,20 @@ class Router
         return $this;
     }
 
-    public function dispatch(Request $request){
+    public function dispatch(Request $request, mixed ...$args){
         foreach($this->routes as $route){
-            if($request->path() === $route['path']){
-                return $this->call($route['handler'], $request);
+            if($request->path() === $route['path'] && $request->method() === $route['method']){
+                return $this->call($route['handler'], $request, ...$args);
             }
         }
     }
 
-    private function call(array $handler, $request)
+    private function call(array $handler, $request, mixed ...$args)
     {
         list($classe, $metodo) = $handler;
 
         if(class_exists($classe)){
-            $controller = new $classe();
+            $controller = new $classe($request, ...$args);
 
             if(method_exists($controller, $metodo)){
                 return $controller->$metodo();

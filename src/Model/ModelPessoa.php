@@ -83,6 +83,17 @@ class ModelPessoa
     }
 
     /**
+     * Adiciona contatos vinculados ao modelo.
+     * @param ModelContato $contato
+     */
+    public function addContato(ModelContato $contato) {
+        if(!$this->contatos->contains($contato)){
+            $contato->setPessoa($this);
+            $this->contatos->add($contato);
+        }
+    }
+
+    /**
      * Retorna os contatos da pessa
      * @return Collection<int, ModelContato>
      */ 

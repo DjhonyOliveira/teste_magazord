@@ -1,0 +1,13 @@
+main {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+}
+
+.texto-explicativo {
+    color: #52606d;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    text-align: left;
+    max-width: 600px;
+}

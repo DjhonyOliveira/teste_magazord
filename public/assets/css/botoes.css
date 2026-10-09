@@ -1,0 +1,55 @@
+.botao {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.botao-primario {
+    background-color: #1f6feb;
+    color: #ffffff;
+}
+
+.botao-primario:hover {
+    background-color: #1a5fd0;
+}
+
+.botao-secundario {
+    background-color: #ffffff;
+    color: #1f2933;
+    border-color: #e1e4e8;
+}
+
+.botao-secundario:hover {
+    background-color: #f1f4f7;
+}
+
+.botao-perigo {
+    background-color: #ffffff;
+    color: #c0392b;
+    border-color: #f5c2bd;
+}
+
+.botao-perigo:hover {
+    background-color: #fdecea;
+}
+
+.botao-pequeno {
+    padding: 0.35rem 0.75rem;
+    font-size: 0.85rem;
+}
+
+.area-acoes-linha {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.form-excluir {
+    display: inline-flex;
+    margin: 0;
+}

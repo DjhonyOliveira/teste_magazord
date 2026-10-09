@@ -3,12 +3,8 @@
 namespace Src\Model;
 
 use Src\Enum\EnumTipoContato;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\ORM\Mapping\Column;
-use Doctrine\ORM\Mapping\JoinColumn;
-use Doctrine\ORM\Mapping\ManyToOne;
 
 /**
  * Modelo de contato
@@ -26,15 +22,15 @@ class ModelContato
     #[ORM\Column(type: Types::INTEGER)]
     private int $id;
 
-    #[ORM\Column(type: Types::BOOLEAN)]
-    private bool $tipo;
+    #[ORM\Column(type: Types::INTEGER)]
+    private int $tipo;
 
     #[ORM\Column(type: Types::STRING, length:255)]
     private string $descricao;
 
-    #[ORM\ManyToOne(targetEntity: ModelPessoa::class, inversedBy: 'contato')]
+    #[ORM\ManyToOne(targetEntity: ModelPessoa::class, inversedBy: 'contatos')]
     #[ORM\JoinColumn(name: 'idPessoa', referencedColumnName: 'id', nullable: false, onDelete: 'CASCADE')]
-    private ModelPessoa $Pessoa;
+    private ModelPessoa $pessoa;
 
     /**
      * Retorna o id do contato
@@ -46,22 +42,22 @@ class ModelContato
     }
 
     /**
-     * Retorna o ritpo do contato
-     * @return string
-     */ 
-    public function getTipo()
+     * Retorna o tipo do contato
+     * @return EnumTipoContato
+     */
+    public function getTipo(): EnumTipoContato
     {
-        return EnumTipoContato::getTipoContatoFromBool($this->tipo);
+        return EnumTipoContato::from($this->tipo);
     }
 
     /**
      * Seta o tipo do contato
      * @param EnumTipoContato $tipo
      * @return self
-     */ 
+     */
     public function setTipo(EnumTipoContato $tipo)
     {
-        $this->tipo = $tipo->ValidaTipoContato();
+        $this->tipo = $tipo->value;
 
         return $this;
     }
@@ -93,17 +89,17 @@ class ModelContato
      */ 
     public function getPessoa(): ModelPessoa
     {
-        return $this->Pessoa;
+        return $this->pessoa;
     }
 
     /**
      * Seta a pessoa do contato
-     * @param ModelPessoa $Pessoa
+     * @param ModelPessoa $pessoa
      * @return  self
-     */ 
-    public function setPessoa(ModelPessoa $Pessoa)
+     */
+    public function setPessoa(ModelPessoa $pessoa)
     {
-        $this->Pessoa = $Pessoa;
+        $this->pessoa = $pessoa;
 
         return $this;
     }

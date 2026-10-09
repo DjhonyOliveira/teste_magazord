@@ -1,0 +1,23 @@
+.area-filtros {
+    margin-bottom: 1.5rem;
+}
+
+.form-filtros {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.input-filtro {
+    flex: 1;
+    max-width: 320px;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #e1e4e8;
+    border-radius: 4px;
+    font-size: 0.95rem;
+}
+
+.area-acoes {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1.5rem;
+}

@@ -10,26 +10,18 @@ use Src\View\Home\ViewHome;
  * @package Src
  * @subpackage Controller
  */
-class ControllerHome
+class ControllerHome extends Controller
 {
-    function create()
-    {
 
-    }
-
-    function update()
-    {
-
-    }
-
-    function delete()
-    {
-
-    }
+    protected function getInstanceModel(){}
 
     function list()
     {
-        $this->getViewConsulta()->montaPagina();
+        $oView = $this->getViewConsulta();
+        $oView->setMontaAreaFiltros(false);
+        $oView->setMontaBotaoCriar(false);
+        
+        $oView->montaPagina();
     }
 
     private function getViewConsulta()

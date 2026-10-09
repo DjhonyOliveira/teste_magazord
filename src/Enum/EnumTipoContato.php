@@ -8,19 +8,17 @@ namespace Src\Enum;
  * @package App
  * @subpackage Enum
  */
-Enum EnumTipoContato: string
+enum EnumTipoContato: int
 {
-    case TELEFONE = 'Telefone';
-    case EMAIL    = 'E-mail';
-    
-    public static function getTipoContatoFromBool(bool $valor): string
-    {
-        return $valor ? self::TELEFONE->value : self::EMAIL->value;
-    }
+    case TELEFONE = 1;
+    case EMAIL    = 2;
 
-    public function ValidaTipoContato()
+    public function getDescricao(): string
     {
-        return $this === self::TELEFONE;
+        return match ($this) {
+            self::TELEFONE => 'Telefone',
+            self::EMAIL    => 'E-mail',
+        };
     }
 
 }
